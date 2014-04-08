@@ -1,4 +1,4 @@
-package com.kapx.jboss.jee6.web.servlet;
+package com.kapx.jboss.jee6.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.kapx.jboss.jee6.ejb.ApplicationEJB;
+
 @WebServlet(name = "ApplicationServlet", urlPatterns = { "/ApplicationServlet" })
 public class ApplicationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,9 +26,10 @@ public class ApplicationServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		final PrintWriter writer = response.getWriter();
-		writer.write("\nJobControllerServlet invoked ...");
+		writer.write("ApplicationServlet invoked ...");
 
-		applicationEJB.execute();
+		final String arg = "test";
+		applicationEJB.execute(arg);
 
 		LOG.info("ApplicationServlet invoked ...");
 		writer.close();
