@@ -6,8 +6,8 @@ import javax.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.kapx.jboss.jee6.web.beans.FileWriter;
 import com.kapx.jboss.jee6.web.util.ApplicationBeanManager;
-import com.kapx.jboss.jee6.web.util.FileWriter;
 
 @Stateless
 public class ApplicationEJB {

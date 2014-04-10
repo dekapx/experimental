@@ -1,4 +1,4 @@
-package com.kapx.jboss.jee6.web.util;
+package com.kapx.jboss.jee6.web.beans;
 
 import javax.inject.Named;
 
