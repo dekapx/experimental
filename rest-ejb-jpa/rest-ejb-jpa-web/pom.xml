@@ -11,6 +11,14 @@
 	<packaging>war</packaging>
 	<name>rest-ejb-jpa-web</name>
 	
+	<dependencies>
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>rest-ejb-jpa-impl</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+	</dependencies>	
+	
 	<build>
 		<finalName>${project.parent.artifactId}</finalName>
 		<plugins>

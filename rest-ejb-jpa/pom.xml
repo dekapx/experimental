@@ -117,5 +117,7 @@
 
 	<modules>
 		<module>rest-ejb-jpa-web</module>
+		<module>rest-ejb-jpa-api</module>
+		<module>rest-ejb-jpa-impl</module>
 	</modules>
 </project>

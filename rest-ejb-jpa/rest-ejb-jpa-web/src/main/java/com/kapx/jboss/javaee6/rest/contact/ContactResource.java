@@ -1,4 +1,4 @@
-package com.kapx.jboss.javaee6.rest;
+package com.kapx.jboss.javaee6.rest.contact;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

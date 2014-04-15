@@ -1,4 +1,4 @@
-package com.kapx.jboss.javaee6.rest;
+package com.kapx.jboss.javaee6.rest.util;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
