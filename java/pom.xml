@@ -36,5 +36,6 @@
 	</build>
 	<modules>
 		<module>java-core</module>
+		<module>java-concurrency</module>
 	</modules>
 </project>
