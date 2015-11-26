@@ -20,13 +20,13 @@ public class CommitFeedListener extends BaseRichSpout {
 	private List<String> commits;
 
 	@Override
-	public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) {
+	public void declareOutputFields(final OutputFieldsDeclarer outputFieldsDeclarer) {
 		outputFieldsDeclarer.declare(new Fields("commit"));
 	}
 
 	@Override
 	@SuppressWarnings("rawtypes")
-	public void open(Map map, TopologyContext context, SpoutOutputCollector outputCollector) {
+	public void open(final Map map, final TopologyContext context, final SpoutOutputCollector outputCollector) {
 		this.outputCollector = outputCollector;
 
 		try {

@@ -10,12 +10,12 @@ import backtype.storm.tuple.Values;
 @SuppressWarnings("serial")
 public class EmailExtractor extends BaseBasicBolt {
 	@Override
-	public void declareOutputFields(OutputFieldsDeclarer declarer) {
+	public void declareOutputFields(final OutputFieldsDeclarer declarer) {
 		declarer.declare(new Fields("email"));
 	}
 
 	@Override
-	public void execute(Tuple tuple, BasicOutputCollector outputCollector) {
+	public void execute(final Tuple tuple, final BasicOutputCollector outputCollector) {
 		String commit = tuple.getStringByField("commit");
 		String[] parts = commit.split(" ");
 		outputCollector.emit(new Values(parts[1]));

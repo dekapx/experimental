@@ -20,18 +20,18 @@ public class EmailCounter extends BaseBasicBolt {
 
 	@Override
 	@SuppressWarnings("rawtypes")
-	public void prepare(Map stormConf, TopologyContext context) {
+	public void prepare(final Map stormConf, final TopologyContext context) {
 		counts = new HashMap<String, Integer>();
 	}
 
 	@Override
-	public void execute(Tuple tuple, BasicOutputCollector outputCollector) {
+	public void execute(final Tuple tuple, final BasicOutputCollector outputCollector) {
 		String email = tuple.getStringByField("email");
 		counts.put(email, countFor(email) + 1);
 		printCounts();
 	}
 
-	private Integer countFor(String email) {
+	private Integer countFor(final String email) {
 		Integer count = counts.get(email);
 		return count == null ? 0 : count;
 	}
