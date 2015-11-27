@@ -26,13 +26,13 @@ public class EmailCounter extends BaseBasicBolt {
 
 	@Override
 	public void execute(final Tuple tuple, final BasicOutputCollector outputCollector) {
-		String email = tuple.getStringByField("email");
+		final String email = tuple.getStringByField("email");
 		counts.put(email, countFor(email) + 1);
 		printCounts();
 	}
 
 	private Integer countFor(final String email) {
-		Integer count = counts.get(email);
+		final Integer count = counts.get(email);
 		return count == null ? 0 : count;
 	}
 
