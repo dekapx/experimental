@@ -8,26 +8,24 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.utils.Utils;
 
 public class LocalTopologyRunner {
-	private static final int TEN_MINUTES = 600000;
+	private static final int ONE_MINUTE = 60000;
 
 	public static void main(String[] args) {
-		TopologyBuilder builder = new TopologyBuilder();
+		final TopologyBuilder builder = new TopologyBuilder();
 
 		builder.setSpout("commit-feed-listener", new CommitFeedListener());
-
 		builder.setBolt("email-extractor", new EmailExtractor()).shuffleGrouping("commit-feed-listener");
-
 		builder.setBolt("email-counter", new EmailCounter()).fieldsGrouping("email-extractor", new Fields("email"));
 
-		Config config = new Config();
+		final Config config = new Config();
 		config.setDebug(true);
 
-		StormTopology topology = builder.createTopology();
+		final StormTopology topology = builder.createTopology();
 
-		LocalCluster cluster = new LocalCluster();
+		final LocalCluster cluster = new LocalCluster();
 		cluster.submitTopology("github-commit-count-topology", config, topology);
 
-		Utils.sleep(TEN_MINUTES);
+		Utils.sleep(ONE_MINUTE);
 		cluster.killTopology("github-commit-count-topology");
 		cluster.shutdown();
 	}

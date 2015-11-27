@@ -21,27 +21,28 @@ import backtype.storm.tuple.Values;
 public class TopologyTest {
 	@Test
 	public void verifyProperValuesAreEmittedByEachBolt() {
-		Config config = new Config();
+		final Config config = new Config();
 		config.setDebug(true);
 
-		MkClusterParam clusterParam = new MkClusterParam();
+		final MkClusterParam clusterParam = new MkClusterParam();
 		clusterParam.setSupervisors(1);
 		clusterParam.setDaemonConf(config);
 
 		Testing.withSimulatedTimeLocalCluster(clusterParam, new TestJob() {
 			@Override
+			@SuppressWarnings("rawtypes")
 			public void run(ILocalCluster cluster) {
-				MockedSources mockedSources = new MockedSources();
-				mockedSources.addMockData("commit-feed-listener", new Values("12345 test@manning.com"));
+				final MockedSources mockedSources = new MockedSources();
+				mockedSources.addMockData("commit-feed-listener", new Values("12345 test@dummy.com"));
 
-				Config config = new Config();
+				final Config config = new Config();
 				config.setDebug(true);
 
-				CompleteTopologyParam topologyParam = new CompleteTopologyParam();
+				final CompleteTopologyParam topologyParam = new CompleteTopologyParam();
 				topologyParam.setMockedSources(mockedSources);
 				topologyParam.setStormConf(config);
 
-				TopologyBuilder builder = new TopologyBuilder();
+				final TopologyBuilder builder = new TopologyBuilder();
 
 				builder.setSpout("commit-feed-listener", new CommitFeedListener());
 
@@ -49,9 +50,9 @@ public class TopologyTest {
 
 				builder.setBolt("email-counter", new EmailCounter()).fieldsGrouping("email-extractor", new Fields("email"));
 
-				StormTopology topology = builder.createTopology();
+				final StormTopology topology = builder.createTopology();
 
-				Map result = Testing.completeTopology(cluster, topology, topologyParam);
+				final Map result = Testing.completeTopology(cluster, topology, topologyParam);
 				assertTrue(Testing.multiseteq(new Values(new Values("12345 test@manning.com")), Testing.readTuples(result, "commit-feed-listener")));
 				assertTrue(Testing.multiseteq(new Values(new Values("test@manning.com")), Testing.readTuples(result, "email-extractor")));
 				assertTrue(Testing.multiseteq(new Values(), Testing.readTuples(result, "email-counter")));
