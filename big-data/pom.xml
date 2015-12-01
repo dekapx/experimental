@@ -9,6 +9,7 @@
 	
 	<properties>
 		<storm-core.version>0.10.0</storm-core.version>
+		<commons-io.version>2.4</commons-io.version>
 		
 		<java.version>1.8</java.version>
 		<junit.version>4.12</junit.version>

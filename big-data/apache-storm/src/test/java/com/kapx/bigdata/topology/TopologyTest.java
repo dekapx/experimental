@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import backtype.storm.Config;
@@ -19,6 +20,7 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Values;
 
 public class TopologyTest {
+	@Ignore
 	@Test
 	public void verifyProperValuesAreEmittedByEachBolt() {
 		final Config config = new Config();
@@ -43,11 +45,8 @@ public class TopologyTest {
 				topologyParam.setStormConf(config);
 
 				final TopologyBuilder builder = new TopologyBuilder();
-
 				builder.setSpout("commit-feed-listener", new CommitFeedListener());
-
 				builder.setBolt("email-extractor", new EmailExtractor()).shuffleGrouping("commit-feed-listener");
-
 				builder.setBolt("email-counter", new EmailCounter()).fieldsGrouping("email-extractor", new Fields("email"));
 
 				final StormTopology topology = builder.createTopology();
