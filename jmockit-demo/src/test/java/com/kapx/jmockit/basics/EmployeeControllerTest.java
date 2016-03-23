@@ -1,22 +1,28 @@
 package com.kapx.jmockit.basics;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
-import mockit.Mock;
-import mockit.MockUp;
+import mockit.Expectations;
+import mockit.Mocked;
+import mockit.integration.junit4.JMockit;
 
+@RunWith(JMockit.class)
 public class EmployeeControllerTest {
+
+	@Mocked
+	EmployeeService employeeService;
 
 	@Test
 	public void testGetCount() {
-		new MockUp<EmployeeService>() {
-			@Mock
-			public int getCount() {
-				return 5;
+		new Expectations() {
+			{
+				employeeService.getCount();
+				returns(7);
 			}
 		};
 
-		EmployeeController controller = new EmployeeController();
+		EmployeeController controller = new EmployeeController(employeeService);
 		int count = controller.getCount();
 		System.out.println(count);
 	}
