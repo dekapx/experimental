@@ -1,0 +1,1 @@
+http://dhruba.name/2009/11/08/jmockit-no-holds-barred-testing-with-instrumentation-over-mocking/
