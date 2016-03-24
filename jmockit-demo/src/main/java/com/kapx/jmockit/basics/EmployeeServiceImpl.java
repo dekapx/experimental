@@ -1,10 +1,15 @@
 package com.kapx.jmockit.basics;
 
-public class EmployeeServiceImpl implements EmployeeService {
+public final class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public int getCount() {
-		return 5;
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public Employee save(final Employee employee) {
+		throw new UnsupportedOperationException();
 	}
 
 }
