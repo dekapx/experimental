@@ -9,4 +9,25 @@ public class JavaConfig {
     public JavaConfigBean javaConfigBean(){
         return new JavaConfigBean();
     }
+
+    @Bean
+    public CsvFileWriter getCsvFileWriter() {
+        return new CsvFileWriter();
+    }
+
+    @Bean
+    public TextFileWriter getTextFileWriter() {
+        return new TextFileWriter();
+    }
+
+    @Bean
+    public XmlFileWriter getXmlFileWriter() {
+        return new XmlFileWriter();
+    }
+
+    @Bean
+    public FileWriterBean getFileWriterBean() {
+        return new FileWriterBean();
+    }
+
 }

@@ -5,6 +5,7 @@
 
     <bean id="xmlBean" class="com.kapx.spring.beans.config.xml.XmlBean"/>
 
+    <bean id="fileWriterBean" class="com.kapx.spring.beans.config.xml.FileWriterBean"/>
     <bean id="csvFileWriter" class="com.kapx.spring.beans.config.xml.CsvFileWriter"/>
     <bean id="textFileWriter" class="com.kapx.spring.beans.config.xml.TextFileWriter"/>
     <bean id="xmlFileWriter" class="com.kapx.spring.beans.config.xml.XmlFileWriter"/>
