@@ -7,10 +7,18 @@ import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 @ImportResource("classpath*:spring-context/applicationContext.xml")
-public class XmlApplication {
+public class FileWriterApplication {
     public static void main(String[] args) {
         final ApplicationContext ctx = SpringApplication.run(XmlApplication.class, args);
-        final XmlBean bean = (XmlBean) ctx.getBean("xmlBean");
-        bean.sayHello();
+
+        FileWriter fileWriter = null;
+        fileWriter = ctx.getBean(CsvFileWriter.class);
+        fileWriter.write("Sample Text");
+
+        fileWriter = ctx.getBean(TextFileWriter.class);
+        fileWriter.write("Sample Text");
+
+        fileWriter = ctx.getBean(XmlFileWriter.class);
+        fileWriter.write("Sample Text");
     }
 }

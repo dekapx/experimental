@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Import;
 @Import(JavaConfig.class)
 public class JavaConfigApplication {
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(JavaConfigApplication.class, args);
-        JavaConfigBean bean = (JavaConfigBean) ctx.getBean("javaConfigBean");
+        final ApplicationContext ctx = SpringApplication.run(JavaConfigApplication.class, args);
+        final JavaConfigBean bean = (JavaConfigBean) ctx.getBean("javaConfigBean");
         bean.sayHello();
     }
 }
