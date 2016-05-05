@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-@Import(JavaConfig.class)
+@Import(SpringConfiguration.class)
 public class JavaConfigApplication {
     public static void main(String[] args) {
         final ApplicationContext ctx = SpringApplication.run(JavaConfigApplication.class, args);

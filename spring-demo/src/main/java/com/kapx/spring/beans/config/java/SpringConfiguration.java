@@ -4,28 +4,29 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class JavaConfig {
-    @Bean
+public class SpringConfiguration
+{
+    @Bean(name = "javaConfigBean")
     public JavaConfigBean javaConfigBean(){
         return new JavaConfigBean();
     }
 
-    @Bean
+    @Bean(name = "csvFileWriter")
     public CsvFileWriter getCsvFileWriter() {
         return new CsvFileWriter();
     }
 
-    @Bean
+    @Bean(name = "textFileWriter")
     public TextFileWriter getTextFileWriter() {
         return new TextFileWriter();
     }
 
-    @Bean
+    @Bean(name = "xmlFileWriter")
     public XmlFileWriter getXmlFileWriter() {
         return new XmlFileWriter();
     }
 
-    @Bean
+    @Bean(name = "fileWriterBean")
     public FileWriterBean getFileWriterBean() {
         return new FileWriterBean();
     }
