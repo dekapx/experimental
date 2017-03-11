@@ -30,7 +30,7 @@ public class UserControllerIT {
 
     @Test
     public void ping() throws Exception {
-        final URL base = new URL("http://localhost:" + port + "/contact/ping");
+        final URL base = new URL("http://localhost:" + port + "/user/ping");
         ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
         assertThat(response.getBody(), equalTo("Contact Service REST Controller"));
     }
