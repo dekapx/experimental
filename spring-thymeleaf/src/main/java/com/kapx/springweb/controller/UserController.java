@@ -13,16 +13,16 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 public class UserController {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
-    @RequestMapping("/greeting")
-    public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
+    @RequestMapping(value = "/login", method = GET)
+    public String login(@RequestParam(value="name", required=false, defaultValue="World") final String name, final Model model) {
         model.addAttribute("name", name);
-        return "greeting";
+        return "dashboard";
     }
 
     @RequestMapping(value = "/ping", method = GET)
     public String ping() {
-        LOGGER.info("--- Contact Service REST Controller ping method invoked. ---");
-        return "Contact Service REST Controller";
+        LOGGER.info("--- User Service REST Controller ping method invoked. ---");
+        return "User Service REST Controller";
     }
 
     @ExceptionHandler
