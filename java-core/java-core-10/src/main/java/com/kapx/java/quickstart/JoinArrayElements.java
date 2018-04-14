@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 public class JoinArrayElements {
     public static void main(String[] args) {
         final String[] languages = {"Java", "Scala", "Kotlin"};
-        final String output = arrayAsCommaSeperatedString(languages);
+        var output = arrayAsCommaSeperatedString(languages);
         System.out.println(output);
     }
 

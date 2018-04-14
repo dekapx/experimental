@@ -6,13 +6,12 @@ import java.util.function.IntConsumer;
 
 public class ConsumerDemo {
     public static void main(String[] args) {
-        final List<Integer> numbers = List.of(1, 2, 3, 4, 5);
-        sumNumbers.accept(numbers);
+        sumNumbers.accept(List.of(1, 2, 3, 4, 5));
         print.accept(1);
     }
 
     private static Consumer<List<Integer>> sumNumbers = (numbers) -> {
-        final int total = numbers.stream().mapToInt(i -> i).sum();
+        var total = numbers.stream().mapToInt(i -> i).sum();
         System.out.println("Total = " + total);
     };
 

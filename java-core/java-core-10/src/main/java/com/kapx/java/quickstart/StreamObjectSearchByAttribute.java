@@ -11,12 +11,12 @@ import java.util.stream.Collectors;
 
 public class StreamObjectSearchByAttribute {
     public static void main(String[] args) {
-        final List<Language> languages = LanguageBuilder.getLanguages();
+        var languages = LanguageBuilder.getLanguages();
         System.out.println(getByType(languages, LanguageType.OBJECT_ORIENTED));
         //-----------------------------------------------------------------//
         print(getAllByType(languages, LanguageType.FUNCTIONAL));
         //-----------------------------------------------------------------//
-        final List<String> names = getSortedNames(languages);
+        var names = getSortedNames(languages);
         names.forEach(printName);
         //-----------------------------------------------------------------//
 
