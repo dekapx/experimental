@@ -1,0 +1,22 @@
+package com.kapx.java.functions;
+
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.IntConsumer;
+
+public class ConsumerDemo {
+    public static void main(String[] args) {
+        final List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+        sumNumbers.accept(numbers);
+        print.accept(1);
+    }
+
+    private static Consumer<List<Integer>> sumNumbers = (numbers) -> {
+        final int total = numbers.stream().mapToInt(i -> i).sum();
+        System.out.println("Total = " + total);
+    };
+
+    private static IntConsumer print = (i) -> {
+        System.out.println("Total = " + i);
+    };
+}
