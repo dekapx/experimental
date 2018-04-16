@@ -1,4 +1,4 @@
-package com.kapx.java.functions;
+package com.kapx.java.consumer;
 
 import java.util.List;
 import java.util.function.Consumer;
