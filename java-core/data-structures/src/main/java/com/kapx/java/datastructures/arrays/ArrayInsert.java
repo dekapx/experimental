@@ -4,7 +4,7 @@ public class ArrayInsert {
     public static void main(String[] args) {
         final int[] elements = {2, 3, 4, 6, 7, 8};
 
-        final int[] newElements = insertAtAnyPosition(elements, 9, 6);
+        final int[] newElements = insertAtAnyPosition(elements, 1, 0);
         for (int i = 0; i < newElements.length; i ++) {
             System.out.print(newElements[i] + " ");
         }
@@ -36,6 +36,7 @@ public class ArrayInsert {
         final int[] newElements = new int[elements.length + 1];
 
         int index = 0;
+        
         newElements[position] = element;
         for (int i = 0; i < newElements.length - 1; i ++) {
             if (position == i) {
