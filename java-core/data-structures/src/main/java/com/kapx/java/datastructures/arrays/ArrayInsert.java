@@ -36,7 +36,7 @@ public class ArrayInsert {
         final int[] newElements = new int[elements.length + 1];
 
         int index = 0;
-        
+
         newElements[position] = element;
         for (int i = 0; i < newElements.length - 1; i ++) {
             if (position == i) {
