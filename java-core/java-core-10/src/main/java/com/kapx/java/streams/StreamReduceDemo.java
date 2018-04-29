@@ -12,7 +12,7 @@ public class StreamReduceDemo {
         };
 
         final int[] numbers = {1, 2, 3, 4, 5};
-        OptionalInt optionalInt  = Arrays.stream(numbers).reduce(operator);
+        final OptionalInt optionalInt  = Arrays.stream(numbers).reduce(operator);
 
         System.out.println("Result: " + optionalInt.getAsInt());
     }
