@@ -1,21 +1,21 @@
 package com.kapx.java.quickstart;
 
-import java.util.List;
-import java.util.function.Function;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class JoinArrayElements {
     public static void main(String[] args) {
-        var languages = List.of("Java", "Scala", "Kotlin");
-        var output = toCommaSeparatedValues.apply(languages);
+        final String[] languages = {"Java", "Scala", "Kotlin"};
+        final String output = arrayAsCommaSeperatedString(languages);
         System.out.println(output);
     }
 
     /**
-     * Accept List and convert to command separated String
+     * Return comma seperated String by joining an array.
      */
-    private static Function<List<String>, String> toCommaSeparatedValues = (elements) ->
-            elements.stream()
-                    .collect(Collectors.joining(","));
-
+    private static String arrayAsCommaSeperatedString(final String[] elements) {
+        return Arrays
+                .stream(elements)
+                .collect(Collectors.joining(","));
+    }
 }

@@ -5,7 +5,7 @@ public class ArrayInsert {
         final int[] elements = {2, 3, 4, 6, 7, 8};
 
         final int[] newElements = insertAtAnyPosition(elements, 1, 0);
-        for (int i = 0; i < newElements.length; i ++) {
+        for (int i = 0; i < newElements.length; i++) {
             System.out.print(newElements[i] + " ");
         }
     }
@@ -14,7 +14,7 @@ public class ArrayInsert {
         final int[] newElements = new int[elements.length + 1];
 
         newElements[0] = element;
-        for (int i = 0; i < newElements.length - 1; i ++) {
+        for (int i = 0; i < newElements.length - 1; i++) {
             newElements[i + 1] = elements[i];
         }
 
@@ -24,7 +24,7 @@ public class ArrayInsert {
     public static int[] insertAtEnd(final int[] elements, final int element) {
         final int[] newElements = new int[elements.length + 1];
 
-        for (int i = 0; i < newElements.length - 1; i ++) {
+        for (int i = 0; i < newElements.length - 1; i++) {
             newElements[i] = elements[i];
         }
         newElements[newElements.length - 1] = element;
@@ -38,12 +38,12 @@ public class ArrayInsert {
         int index = 0;
 
         newElements[position] = element;
-        for (int i = 0; i < newElements.length - 1; i ++) {
+        for (int i = 0; i < newElements.length - 1; i++) {
             if (position == i) {
-                index ++;
+                index++;
             }
             newElements[index] = elements[i];
-            index ++;
+            index++;
         }
 
         return newElements;
