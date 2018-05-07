@@ -12,9 +12,23 @@ public class InsertionSort {
     private static void sort(final int[] elements) {
         print(elements);
 
-        for (int i = 0; i < elements.length - 1; i ++) {
+        int temp = 0;
+        int steps = 0;
+        for (int i = 1; i < elements.length; i++) {
+            boolean flag = false;
+            for (int j = i; j > 0; j--) {
+                if (elements[j] < elements[j - 1]) {
+                    temp = elements[j];
+                    elements[j] = elements[j - 1];
+                    elements[j - 1] = temp;
+                    flag = true;
+                }
+                steps++;
+            }
+            if (!flag) break;
         }
         print(elements);
+        System.out.println("Total Steps: " + steps);
     }
 
     private static void print(final int[] elements) {

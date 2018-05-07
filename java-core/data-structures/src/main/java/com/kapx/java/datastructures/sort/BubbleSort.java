@@ -12,20 +12,19 @@ public class BubbleSort {
     private static void sort(final int[] elements) {
         print(elements);
         int steps = 0;
-        for (int i = 0; i < elements.length; i ++) {
+        for (int i = 0; i < elements.length; i++) {
             boolean flag = false;
-            for (int j = 0; j < elements.length - 1; j ++) {
+            for (int j = 0; j < elements.length - 1; j++) {
                 if (isNextElementSmaller(elements, j)) {
                     flag = true;
                     swap(elements, j);
                 }
-                steps ++;
+                steps++;
             }
-            if (!flag)
-                break;
+            if (!flag) break;
         }
         print(elements);
-        System.out.println("Total Stetps: " + steps);
+        System.out.println("Total Steps: " + steps);
     }
 
     private static boolean isNextElementSmaller(final int[] elements, final int index) {

@@ -35,7 +35,7 @@ public class SelectionSort {
             }
         }
         print(elements);
-        System.out.println("Total Stetps: " + steps);
+        System.out.println("Total Steps: " + steps);
     }
 
     private static void print(final int[] elements) {
