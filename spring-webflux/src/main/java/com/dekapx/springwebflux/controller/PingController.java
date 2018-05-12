@@ -14,6 +14,6 @@ public class PingController {
     @RequestMapping(value = "/ping", method = GET)
     public String ping() {
         LOGGER.info("--- Contact Service REST Controller ping method invoked. ---");
-        return "Contact Service REST Controller";
+        return "Spring Webflux Application ping...";
     }
 }
