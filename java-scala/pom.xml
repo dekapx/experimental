@@ -42,7 +42,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.10</version>
+                <version>3.0.0</version>
                 <executions>
                     <execution>
                         <id>add-source</id>
@@ -75,11 +75,10 @@
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-                <version>3.2.2</version>
+                <version>3.4.0</version>
                 <executions>
                     <execution>
                         <goals>
-                            <!-- Need to specify this explicitly, otherwise plugin won't be called when doing e.g. mvn compile -->
                             <goal>compile</goal>
                             <goal>testCompile</goal>
                         </goals>
