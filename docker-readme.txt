@@ -31,7 +31,7 @@ $ docker rm -vf $(docker ps -aq)
 $ docker rm -f $(docker ps -a -q)
 
 # Delete every Docker image
-docker rmi -f $(docker images -q)
+$ docker rmi -f $(docker images -q)
 
 # Delete all unused images and volumes
 $ docker system prune --all
