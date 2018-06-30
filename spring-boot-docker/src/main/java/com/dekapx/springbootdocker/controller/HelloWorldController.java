@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloWorldController {
     @RequestMapping(value = "/hello", method= RequestMethod.GET)
     public String home() {
-        return "Hello Spring Boot Docker Example...";
+        return "--- Hello Spring Boot Docker Example ---";
     }
 }
