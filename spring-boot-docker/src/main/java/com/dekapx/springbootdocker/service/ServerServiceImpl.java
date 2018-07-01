@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ServerServiceImpl implements ServerService {
@@ -27,7 +28,10 @@ public class ServerServiceImpl implements ServerService {
 
     @Override
     public List<ServerDto> findAll() {
-        return null;
+        final List<ServerEntity> entities = serverRepository.findAll();
+        return entities.stream()
+                .map(e -> toServerDto(e))
+                .collect(Collectors.toList());
     }
 
 

@@ -1,3 +1,4 @@
+----------
 - Docker - 
 ----------
 # Login Docker CLI
@@ -41,3 +42,11 @@ $ docker rmi -f $(docker images -q)
 
 # Delete all unused images and volumes
 $ docker system prune --all
+
+---------------------
+- Docker PostgreSQL - 
+---------------------
+
+
+
+
