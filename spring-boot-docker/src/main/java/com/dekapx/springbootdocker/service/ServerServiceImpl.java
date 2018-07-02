@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,17 +24,19 @@ public class ServerServiceImpl implements ServerService {
     @Override
     public ServerDto find(final long id) {
         final Optional<ServerEntity> optionalEntity = serverRepository.findById(id);
-        return toServerDto(optionalEntity.orElseThrow(() -> new ServerNotFoundException(String.valueOf(id))));
+        return toServerDto(optionalEntity
+                .orElseThrow(() -> new ServerNotFoundException(String.valueOf(id))));
     }
 
     @Override
     public List<ServerDto> findAll() {
         final List<ServerEntity> entities = serverRepository.findAll();
         return entities.stream()
-                .map(e -> toServerDto(e))
+                .map(copyEntityToDto)
                 .collect(Collectors.toList());
     }
 
+    private Function<ServerEntity, ServerDto> copyEntityToDto = (entity) -> toServerDto(entity);
 
     private ServerDto toServerDto(final ServerEntity entity) {
         return ServerDto.builder()
