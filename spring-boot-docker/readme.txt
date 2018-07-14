@@ -37,3 +37,33 @@ $ docker rmi -f $(docker images -q)
 
 # Delete all unused images and volumes
 $ docker system prune --all
+
+---------------------
+- Docker PostgreSQL -
+---------------------
+$ docker pull postgres
+
+$ docker run -d --name docker-postgres -e POSTGRES_USER=dekapx -e POSTGRES_PASSWORD=passw0rd -e POSTGRES_DB=testdb -p 5432:5432 postgres:latest
+
+--------------------------
+- SQL Schema and Scripts -
+--------------------------
+CREATE SEQUENCE SERVERS_ID_SEQ;
+
+CREATE TABLE SERVERS(
+  ID INTEGER NOT NULL DEFAULT nextval('SERVERS_ID_SEQ'::regclass),
+  NAME VARCHAR(255) not null,
+  CONSTRAINT SERVER_PKEY PRIMARY KEY (ID)
+);
+
+ALTER SEQUENCE SERVERS_ID_SEQ OWNED BY SERVERS.id;
+
+INSERT INTO SERVERS (NAME) VALUES('Dell PowerEdge T20');
+INSERT INTO SERVERS (NAME) VALUES('Lenovo ThinkServer TS140');
+INSERT INTO SERVERS (NAME) VALUES('Supermicro SuperWorkstation 5039A-IL');
+INSERT INTO SERVERS (NAME) VALUES('Fujitsu Primergy TX1310 M1');
+INSERT INTO SERVERS (NAME) VALUES('HP Proliant Microserver Gen8');
+INSERT INTO SERVERS (NAME) VALUES('Lenovo ThinkServer TS440');
+INSERT INTO SERVERS (NAME) VALUES('HP Proliant ML350 Gen 9');
+INSERT INTO SERVERS (NAME) VALUES('Scan 3XS SER-T25');
+INSERT INTO SERVERS (NAME) VALUES('Asus TS500');
