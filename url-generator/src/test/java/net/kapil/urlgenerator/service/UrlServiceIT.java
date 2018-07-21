@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UrlServiceTest {
+public class UrlServiceIT {
     @Rule
     public ExpectedException expected = ExpectedException.none();
 
