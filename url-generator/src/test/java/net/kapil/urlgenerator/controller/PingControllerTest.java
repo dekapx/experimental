@@ -13,17 +13,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(HelloWorldController.class)
-public class HelloWorldControllerTest {
+@WebMvcTest(PingController.class)
+public class PingControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    public void invokeHelloWorld() throws Exception {
-        mockMvc.perform(get("/api/hello")
+    public void invokePingControllerAndVerifyUrl() throws Exception {
+        mockMvc.perform(get("/api/ping")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Hello World!"));
+                .andExpect(content().string("Hi! this URL is active..."));
     }
 }
