@@ -16,12 +16,12 @@ public class UrlShortenerServiceImpl implements UrlShortenerService {
 
     private String shortenUrl(final String url) {
         if (StringUtils.isEmpty(url)) {
-            throw new InvalidURLException("The URL must not be null or empty.");
+            throw new InvalidUrlException("Not a valid URL. The URL must not be null or empty.");
         }
 
         boolean isSupportedProtocol = ProtocolType.contains(url);
         if (!isSupportedProtocol) {
-            throw new InvalidURLException("The given URL contains invalid protocol.");
+            throw new InvalidUrlException("Not a valid URL. The given URL contains invalid protocol.");
         }
 
         String hexValue = Integer.toString(url.hashCode(), RADIX);
