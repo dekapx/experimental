@@ -19,7 +19,7 @@ public class UrlShortenerServiceImpl implements UrlShortenerService {
             throw new InvalidUrlException("Not a valid URL. The URL must not be null or empty.");
         }
 
-        boolean isSupportedProtocol = ProtocolType.contains(url);
+        final boolean isSupportedProtocol = ProtocolType.contains(url);
         if (!isSupportedProtocol) {
             throw new InvalidUrlException("Not a valid URL. The given URL contains invalid protocol.");
         }

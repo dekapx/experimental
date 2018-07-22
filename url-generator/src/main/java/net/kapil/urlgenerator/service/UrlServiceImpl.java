@@ -50,6 +50,7 @@ public class UrlServiceImpl implements UrlService {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public void delete(final UrlShortenerRequestDto requestDto) {
         final Optional<UrlEntity> optionalEntity = urlRepository.findByUrl(requestDto.getOriginalUrl());
         urlRepository.delete(optionalEntity
