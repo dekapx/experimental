@@ -30,10 +30,16 @@ public class UrlServiceImpl implements UrlService {
     @Transactional(propagation = Propagation.REQUIRED)
     public UrlShortenerResponseDto generateAndSave(final UrlShortenerRequestDto requestDto) {
         validate(requestDto.getOriginalUrl());
-        final String shortUrl = urlShortenerService.getShortUrl(requestDto.getOriginalUrl());
-        final UrlEntity urlEntity = toUrlEntity(requestDto, shortUrl);
-        urlRepository.save(urlEntity);
-        return UrlShortenerResponseDto.builder().shortenUrl(shortUrl).build();
+
+        final Optional<UrlEntity> optionalEntity = urlRepository.findByUrl(requestDto.getOriginalUrl());
+        if(optionalEntity.isPresent()) {
+            return UrlShortenerResponseDto.builder().shortenUrl(optionalEntity.get().getShortenUrl()).build();
+        } else {
+            final String shortUrl = urlShortenerService.getShortUrl(requestDto.getOriginalUrl());
+            final UrlEntity urlEntity = toUrlEntity(requestDto, shortUrl);
+            urlRepository.save(urlEntity);
+            return UrlShortenerResponseDto.builder().shortenUrl(shortUrl).build();
+        }
     }
 
     @Override
