@@ -7,7 +7,7 @@ import org.springframework.util.StringUtils;
 public class UrlShortenerServiceImpl implements UrlShortenerService {
     private static final int RADIX = 36;
     private static final String PIPE = "-";
-    private static final String PREFIX = "http://tinyurl/";
+    private static final String PREFIX = "http://localhost:9090/";
 
     @Override
     public String getShortUrl(final String originalUrl) {
