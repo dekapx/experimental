@@ -5,11 +5,11 @@ public class Test {
 
     public static void main(String[] args) {
         final String url = "http://localhost:9090/api/ping";
-        System.out.println(isValidUrl(url));
+        System.out.println(isValidUrl(""));
     }
 
     private static boolean isValidUrl(final String url) {
-        return ((url != null && !url.isEmpty()) && (url.matches(REGEX)));
+        return (url != null && (url.matches(REGEX)));
     }
 }
 
