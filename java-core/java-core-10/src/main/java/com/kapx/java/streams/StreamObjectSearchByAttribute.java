@@ -1,4 +1,4 @@
-package com.kapx.java.quickstart;
+package com.kapx.java.streams;
 
 import com.kapx.java.common.model.ElementNotFoundException;
 import com.kapx.java.common.model.Language;

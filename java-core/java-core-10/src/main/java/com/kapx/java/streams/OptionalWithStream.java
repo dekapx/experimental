@@ -1,4 +1,4 @@
-package com.kapx.java.quickstart;
+package com.kapx.java.streams;
 
 import java.util.List;
 import java.util.Optional;
