@@ -1,4 +1,4 @@
-package com.kapx.java.quickstart;
+package com.kapx.java.streams;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
