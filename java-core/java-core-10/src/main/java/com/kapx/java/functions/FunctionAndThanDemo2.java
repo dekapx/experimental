@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class FunctionAndThanDemo2 {
     public static void main(String[] args) {
-        final String arg = "Java, Scala, Kotlin, Haskal, Java Script";
+        final String arg = "Java, Scala, Java, Kotlin, Scala, Haskal, Java Script";
 
         final List<String> languages = split.andThen(toList).andThen(sortAndFilter).apply(arg);
         print.accept(languages);
@@ -26,6 +26,7 @@ public class FunctionAndThanDemo2 {
     private static Function<List<String>, List<String>> sortAndFilter = (elements) -> {
         return elements.stream()
                 .filter(isScriptingLanguage())
+                .distinct()
                 .sorted()
                 .collect(Collectors.toList());
     };
