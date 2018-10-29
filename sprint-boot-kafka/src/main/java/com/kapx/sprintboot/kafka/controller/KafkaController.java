@@ -1,5 +1,6 @@
 package com.kapx.sprintboot.kafka.controller;
 
+import com.kapx.sprintboot.kafka.producer.KafkaProducerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ public class KafkaController {
     private Logger logger = LoggerFactory.getLogger(KafkaController.class);
 
     @Autowired
-    private KafkaSender kafkaSender;
+    private KafkaProducerImpl kafkaProducer;
 
     @GetMapping(value = "/ping", produces = "application/json")
     public String home() {
@@ -22,9 +23,9 @@ public class KafkaController {
 
     @PostMapping("/kafka/{topicName}")
     public String sendToTopic(@PathVariable final String topicName, @RequestBody final String message) {
-        kafkaSender.send(topicName, message);
+        kafkaProducer.send(topicName, message);
         logger.info("Sending message to topic...");
-        return message + " sent...";
+        return "message [" + message + "] sent...";
     }
 
     @ExceptionHandler
