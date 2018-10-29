@@ -21,9 +21,9 @@ public class KafkaController {
         return "Hi! this URL is active...";
     }
 
-    @PostMapping("/kafka/{topicName}")
-    public String sendToTopic(@PathVariable final String topicName, @RequestBody final String message) {
-        kafkaProducer.send(topicName, message);
+    @PostMapping("/kafka")
+    public String sendToTopic(@RequestBody final String message) {
+        kafkaProducer.send(message);
         logger.info("Sending message to topic...");
         return "message [" + message + "] sent...";
     }
