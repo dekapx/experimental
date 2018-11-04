@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class KafkaProducerImpl implements KafkaProducer {
     private Logger logger = LoggerFactory.getLogger(KafkaProducerImpl.class);
 
-    @Value("${kafka.topic}")
+    @Value("${test.topic}")
     private String topic;
 
     @Autowired

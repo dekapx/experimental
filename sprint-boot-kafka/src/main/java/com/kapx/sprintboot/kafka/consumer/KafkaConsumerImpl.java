@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class KafkaConsumerImpl implements KafkaConsumer {
     private Logger logger = LoggerFactory.getLogger(KafkaConsumerImpl.class);
 
-    @KafkaListener(topics = "${kafka.topic}")
+    @KafkaListener(topics = "${test.topic}")
     public void onMessage(final ConsumerRecord<?, ?> consumerRecord) {
         logger.info("Receiver on test-topic: " + consumerRecord.toString());
     }

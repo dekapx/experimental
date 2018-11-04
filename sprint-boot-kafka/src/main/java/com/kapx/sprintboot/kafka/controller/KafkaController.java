@@ -23,6 +23,9 @@ public class KafkaController {
 
     @PostMapping("/kafka")
     public String sendToTopic(@RequestBody final String message) {
+        // TODO: @RequestBody final Message message
+        // accept JSON & XML
+        // convert this message to object and send to message producer
         kafkaProducer.send(message);
         logger.info("Sending message to topic...");
         return "message [" + message + "] sent...";
