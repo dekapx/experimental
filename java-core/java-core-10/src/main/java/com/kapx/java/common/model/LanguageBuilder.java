@@ -11,6 +11,7 @@ public class LanguageBuilder {
         final List<Language> languages = new ArrayList<>();
 
         languages.add(new Language("Java", OBJECT_ORIENTED));
+        languages.add(new Language("C++", OBJECT_ORIENTED));
         languages.add(new Language("Scala", FUNCTIONAL));
         languages.add(new Language("Kotlin", FUNCTIONAL));
         languages.add(new Language("Haskal", FUNCTIONAL));
