@@ -1,9 +1,11 @@
 package com.kapx.sprintboot.kafka.controller;
 
+import com.kapx.sprintboot.kafka.model.Contact;
 import com.kapx.sprintboot.kafka.producer.KafkaProducerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.HttpStatus.CONFLICT;
@@ -16,19 +18,22 @@ public class KafkaController {
     @Autowired
     private KafkaProducerImpl kafkaProducer;
 
-    @GetMapping(value = "/ping", produces = "application/json")
+    @GetMapping(value = "/ping", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public String home() {
         return "Hi! this URL is active...";
     }
 
-    @PostMapping("/kafka")
+    @PostMapping(value = "/kafka", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public String sendToTopic(@RequestBody final String message) {
-        // TODO: @RequestBody final Message message
-        // accept JSON & XML
-        // convert this message to object and send to message producer
+        logger.info("Sending [{}] to topic...", message);
         kafkaProducer.send(message);
-        logger.info("Sending message to topic...");
         return "message [" + message + "] sent...";
+    }
+
+    @PostMapping(value = "/contact", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public Contact create(@RequestBody final Contact contact) {
+        logger.info("Contact {}", contact);
+        return contact;
     }
 
     @ExceptionHandler

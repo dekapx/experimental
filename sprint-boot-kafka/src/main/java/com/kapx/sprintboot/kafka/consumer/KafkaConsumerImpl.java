@@ -7,7 +7,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 @Component("kafkaConsumer")
-public class KafkaConsumerImpl implements KafkaConsumer {
+public class KafkaConsumerImpl  { //implements KafkaConsumer {
     private Logger logger = LoggerFactory.getLogger(KafkaConsumerImpl.class);
 
     @KafkaListener(topics = "${test.topic}")
