@@ -1,6 +1,5 @@
 package com.kapx.sprintboot.kafka.producer;
 
-import com.kapx.sprintboot.kafka.model.Contact;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
