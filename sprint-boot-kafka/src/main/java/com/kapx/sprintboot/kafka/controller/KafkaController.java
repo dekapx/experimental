@@ -1,6 +1,5 @@
 package com.kapx.sprintboot.kafka.controller;
 
-import com.kapx.sprintboot.kafka.model.Contact;
 import com.kapx.sprintboot.kafka.producer.KafkaProducerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +19,7 @@ public class KafkaController {
 
     @GetMapping(value = "/ping", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public String home() {
+        logger.info("Hi! this URL is active...");
         return "Hi! this URL is active...";
     }
 
@@ -28,12 +28,6 @@ public class KafkaController {
         logger.info("Sending [{}] to topic...", message);
         kafkaProducer.send(message);
         return "message [" + message + "] sent...";
-    }
-
-    @PostMapping(value = "/contact", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public Contact create(@RequestBody final Contact contact) {
-        logger.info("Contact {}", contact);
-        return contact;
     }
 
     @ExceptionHandler
