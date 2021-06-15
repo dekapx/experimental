@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.dekapx.apps</groupId>
-	<artifactId>spring-boot-graphql</artifactId>
+	<artifactId>spring-boot-specification</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot-graphql</name>
-	<description>Spring Boot GraphQL</description>
+	<name>spring-boot-specification</name>
+	<description>Spring Boot Specification Join</description>
 
 	<properties>
 		<java.version>15</java.version>

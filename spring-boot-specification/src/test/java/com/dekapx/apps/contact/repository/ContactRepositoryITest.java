@@ -38,6 +38,8 @@ public class ContactRepositoryITest {
     public void setup() {
     }
 
+
+    @Disabled
     @Test
     public void findBySpecification() {
         Specification specificationFirstName = ContactSpecification.getContactByFirstName("De");

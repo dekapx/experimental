@@ -1,9 +1,9 @@
 server:
-  port: 9091
+  port: 8080
 
 spring:
   application:
-    name: spring-boot-graphql
+    name: spring-boot-specification
   datasource:
     password: passw0rd
     platform: POSTGRESQL
